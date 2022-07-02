@@ -49,11 +49,11 @@ cd /apps
 git clone https://github.com/ss-o-furda/fastapi_pypi_clone.git app_repo
 
 # Setup the web app:
-cd /apps/app_repo/fastapi_weather
+cd /apps/app_repo
 pip install -r requirements.txt
 
 # Copy and enable the daemon
-cp /apps/app_repo/fastapi_pypi_clone/server/units/pypi.service /etc/systemd/system/
+cp /apps/app_repo/server/units/pypi.service /etc/systemd/system/
 
 systemctl start pypi
 systemctl status pypi
@@ -65,7 +65,7 @@ apt install nginx
 # CAREFUL HERE. If you are using default, maybe skip this
 rm /etc/nginx/sites-enabled/default
 
-cp /apps/app_repo/fastapi_pypi_clone/server/nginx/pypi.nginx /etc/nginx/sites-enabled/
+cp /apps/app_repo/server/nginx/pypi.nginx /etc/nginx/sites-enabled/
 update-rc.d nginx enable
 service nginx restart
 
